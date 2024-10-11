@@ -1,0 +1,42 @@
+from pint import UnitRegistry
+ureg = UnitRegistry()
+
+def convertir_unidades():
+
+    print("CONVERSOR DE UNIDADES")
+    print("······ MENU ······")
+    print("\nELIGE UN NUMERO")
+    print("1. CONVERTIR KILOMETROS A METROS")
+    print("2. CONVERTIR HORAS A MINUTOS")
+    print("3. CONVERTIR CELCIUS A FARENHEIT")
+
+    while True:
+        try:
+            opcion = int(input("Que opcion deseas hacer? "))
+            if opcion == 1:
+
+                distancia_km = float(input("ingresa el numero de kilometros que quieres convertir a metros: "))
+                distancia_m = distancia_km * ureg.kilometer
+                print(f"La distancia en metros es: {distancia_m.to(ureg.meter)}")
+
+            elif opcion == 2:
+
+                tiempo_horas = float(input("Ingrese el número de horas que que quieres convertir a minutos: "))
+                tiempo_minutos = tiempo_horas * ureg.hour
+                print(f"El tiempon en minutos es: {tiempo_minutos.to(ureg.minute)}")
+            
+            elif opcion == 3:
+
+                temperatura_celcius = float(input("Ingresa la temperatura en celcius que quieres convertir a farenheit: "))
+                Q_=ureg.Quantity
+                home = Q_(temperatura_celcius,ureg.degC)
+                
+                print(f"La temperatura en farenheit es: {home.to(ureg.degF)}")
+               
+
+            elif opcion == 3:
+                print("Opción inválida. Por favor, elige una opción del 1 al 3.")
+        except ValueError:
+            print("Entrada inválida. Por favor, ingresa un número entero.")
+
+convertir_unidades()

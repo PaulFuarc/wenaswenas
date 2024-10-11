@@ -1,0 +1,20 @@
+import pint
+
+ureg = pint.UnitRegistry()
+
+"DEFINIR DISTANCIA CON UNIDADES"
+distancia = 5 * ureg.kilometer
+tiempo = 30 * ureg.minute
+
+"REALIZA CONVERSIONES"
+distancia_en_metros = distancia.to(ureg.meter)
+tiempo_en_segundos = tiempo.to(ureg.second)
+
+"REALIZAR CALCULO CON UNIDADES"
+velocidad = distancia/tiempo
+
+print(f"Distancia: {distancia}")
+print(f"Distancia en metros{distancia_en_metros}")
+print(f"Tiempo{tiempo}")
+print(f"Tiempo en segundos: {tiempo_en_segundos}")
+print(f"velocidad {velocidad}")
